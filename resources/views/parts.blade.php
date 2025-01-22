@@ -32,25 +32,28 @@
                     </div>
                 </div>
 
+                {{--items display in parts section---}}
+                @foreach ($parts as $part )
                 <div class="row">
-                    <div class="col-lg-12 list-item product-block-five">
+                    <div class="col-lg-12 list-part product-block-five">
                         <div class="inner-box">
                             <div class="image">
                                 <!-- Verify that this image path is correct -->
-                                <img src="assets/images/resource/image-42.jpg" alt="Product Image">
+                                <img src="{{ asset('assets/images/resource/' . $part->image) }}" alt="Product Image">
                             </div>
                             <div class="lower-content">
-                                <h5>Product Category</h5>
-                                <h4><a href="product-details.html">Disc Brake</a> </h4>
-                                <div class="price">$62.00</div>
+                                <h5>{{$part->category->name}}</h5>
+                                <h4><a href="{{ route('single') }}">{{$part->name}}</a> </h4>
+                                <div class="price">${{$part->price}}</div>
                                 <div class="link-btn">
-                                    <a href="cart.html" class="theme-btn btn-style-one"><span> Add to cart</span></a>
+                                    <a href="#" class="theme-btn btn-style-one"><span> Add to cart</span></a>
                                     <a href="#" class="theme-btn btn-style-one style-3"><span>Add to wishlist</span></a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                @endforeach
 
                 <div class="page-pagination">
                     <ul class="clearfix">
