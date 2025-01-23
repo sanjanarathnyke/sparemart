@@ -21,14 +21,20 @@
                         </ul>
                         <p>Showing 6 of 98 products</p>
                     </div>
+
+                    {{-- Sort Section --}}
                     <div class="shorting">
-                        <span>Sort</span>
-                        <select class="selectmenu">
-                            <option selected="selected">Price</option>
-                            <option>$45</option>
-                            <option>$69</option>
-                            <option>$99</option>
-                        </select>
+                        <form method="GET" action="{{ route('parts') }}">
+                            <span>Sort</span>
+                            <select class="selectmenu" name="price" onchange="this.form.submit()">
+                                <option value="" {{ request('price')=='' ? 'selected' : '' }}>All</option>
+                                <option value="<$45" {{ request('price')=='<$45' ? 'selected' : '' }}>
+                                    <$45< /option>
+                                <option value="<$69" {{ request('price')=='<$69' ? 'selected' : '' }}>
+                                    <$69< /option>
+                                <option value=">$99" {{ request('price')=='>$99' ? 'selected' : '' }}> >$99</option>
+                            </select>
+                        </form>
                     </div>
                 </div>
 
@@ -43,10 +49,22 @@
                             </div>
                             <div class="lower-content">
                                 <h5>{{$part->category->name}}</h5>
-                                <h4><a href="{{ route('single') }}">{{$part->name}}</a> </h4>
+                                <h4><a href="{{ route('single', ['id'=>$part->id]) }}">{{$part->name}}</a> </h4>
                                 <div class="price">${{$part->price}}</div>
                                 <div class="link-btn">
-                                    <a href="#" class="theme-btn btn-style-one"><span> Add to cart</span></a>
+                                    <!-- Add to Cart Form -->
+                                    <form action="{{ route('add-to-cart') }}" method="POST"
+                                        style="display: inline-block;">
+                                        @csrf
+                                        <input type="hidden" name="id" value="{{ $part->id }}">
+                                        <input type="hidden" name="name" value="{{ $part->name }}">
+                                        <input type="hidden" name="price" value="{{ $part->price }}">
+                                        <input type="hidden" name="image" value="{{$part->image}}">
+                                        <button type="submit" class="theme-btn btn-style-one">
+                                            <span>Add to cart</span>
+                                        </button>
+                                    </form>
+
                                     <a href="#" class="theme-btn btn-style-one style-3"><span>Add to wishlist</span></a>
                                 </div>
                             </div>
@@ -56,15 +74,7 @@
                 @endforeach
 
                 <div class="page-pagination">
-                    <ul class="clearfix">
-                        <li><a href="#"><span class="fas fa-angle-double-left"></span></a></li>
-                        <li><a href="#">1</a></li>
-                        <li class="active"><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">...</a></li>
-                        <li><a href="#">10</a></li>
-                        <li><a href="#"><span class="fas fa-angle-double-right"></span></a></li>
-                    </ul>
+                    {{ $parts->links('pagination::bootstrap-5') }}
                 </div>
             </div>
             <div class="col-lg-3">
@@ -131,3 +141,39 @@
 </div>
 
 @endsection
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const productId = this.getAttribute('data-id');
+                const productName = this.getAttribute('data-name');
+                const productPrice = this.getAttribute('data-price');
+                const productImage = this.getAttribute('data-image');
+
+                // Send the data to the server using fetch API or Axios
+                fetch('/add-to-cart', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+                    },
+                    body: JSON.stringify({
+                        id: productId,
+                        name: productName,
+                        price: productPrice
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    alert(data.message);
+                })
+                .catch(error => console.error('Error:', error));
+            });
+        });
+    });
+</script>

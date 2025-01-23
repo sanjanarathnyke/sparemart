@@ -5,19 +5,19 @@
     <meta charset="utf-8">
     <title>Speedia Car Shop HTML 5 Template</title>
     <!-- Stylesheets -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
-    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="{{ asset('assets/css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
     <!-- Responsive File -->
-    <link href="assets/css/responsive.css" rel="stylesheet">
+    <link href="{{ asset('assets/css/responsive.css') }}" rel="stylesheet">
     <!-- Color File -->
-    <link href="assets/css/color.css" rel="stylesheet">
+    <link href="{{ asset('assets/css/color.css') }}" rel="stylesheet">
 
     <link
         href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&family=Rubik:wght@400;500;600;700&display=swap"
         rel="stylesheet">
 
-    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
-    <link rel="icon" href="assets/images/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('assets/images/favicon.png') }}" type="image/x-icon">
 
     <!-- Responsive -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,16 +29,6 @@
 <body>
 
     <div class="page-wrapper">
-        <!-- Preloader -->
-        <div class="loader-wrap">
-            <div class="preloader">
-                <div class="preloader-close">Preloader Close</div>
-            </div>
-            <div class="layer layer-one"><span class="overlay"></span></div>
-            <div class="layer layer-two"><span class="overlay"></span></div>
-            <div class="layer layer-three"><span class="overlay"></span></div>
-        </div>
-
         <!-- Main Header -->
         <header class="main-header header-style-four">
 
@@ -62,7 +52,7 @@
                                 <div class="shopping-cart"><i class="far fa-shopping-cart"></i><span
                                         class="count">0</span></div>
                             </li>
-                        
+
                         </ul>
                     </div>
                 </div>
@@ -261,24 +251,26 @@
     <!--Scroll to top-->
     <div class="scroll-to-top scroll-to-target" data-target="html"><span class="flaticon-right-arrow-4"></span></div>
 
-    <script src="assets/js/jquery.js"></script>
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/bootstrap-select.min.js"></script>
-    <script src="assets/js/jquery.fancybox.js"></script>
-    <script src="assets/js/isotope.js"></script>
-    <script src="assets/js/owl.js"></script>
-    <script src="assets/js/appear.js"></script>
-    <script src="assets/js/wow.js"></script>
-    <script src="assets/js/lazyload.js"></script>
-    <script src="assets/js/scrollbar.js"></script>
-    <script src="assets/js/TweenMax.min.js"></script>
-    <script src="assets/js/swiper.min.js"></script>
-    <script src="assets/js/jquery.polyglot.language.switcher.js"></script>
-    <script src="assets/js/jquery.ajaxchimp.min.js"></script>
-    <script src="assets/js/parallax-scroll.js"></script>
+    <script src="{{ asset('assets/js/jquery.js') }}"></script>
+    <script src="{{ asset('assets/js/popper.min.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap-select.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.fancybox.js') }}"></script>
+    <script src="{{ asset('assets/js/isotope.js') }}"></script>
+    <script src="{{ asset('assets/js/owl.js') }}"></script>
+    <script src="{{ asset('assets/js/appear.js') }}"></script>
+    <script src="{{ asset('assets/js/wow.js') }}"></script>
+    <script src="{{ asset('assets/js/lazyload.js') }}"></script>
+    <script src="{{ asset('assets/js/scrollbar.js') }}"></script>
+    <script src="{{ asset('assets/js/TweenMax.min.js') }}"></script>
+    <script src="{{ asset('assets/js/swiper.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.polyglot.language.switcher.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.ajaxchimp.min.js') }}"></script>
+    <script src="{{ asset('assets/js/parallax-scroll.js') }}"></script>
 
-    <script src="assets/js/script.js"></script>
+    
+
+    <script src="{{ asset('assets/js/script.js') }}"></script>
 
 
 </body>
