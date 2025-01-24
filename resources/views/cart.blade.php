@@ -37,10 +37,14 @@
                         <tr>
                             <td class="prod-column">
                                 <div class="column-box">
-                                    <figure class="prod-thumb"><a href="#"> <img
-                                                src="{{ $item['image'] ?? 'default-image.jpg' }}"
-                                                alt="{{ $item['name'] }}">a></figure>
-                                    <h4>{{$item['name']}}</h4>
+                                    <figure class="prod-thumb">
+                                        <a href="#">
+                                            <img src="{{ asset($item['image'] ?? 'default-image.jpg') }}" 
+                                                 alt="{{ $item['name'] }}">
+                                        </a>
+                                    </figure>
+                                    <h4>{{ $item['name'] }}</h4>
+                                    
                                 </div>
                             </td>
                             <td class="qty">
