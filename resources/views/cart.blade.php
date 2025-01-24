@@ -44,14 +44,8 @@
                                 </div>
                             </td>
                             <td class="qty">
-                                <input 
-                                    type="number" 
-                                    value="1" 
-                                    min="1" 
-                                    name="quantity" 
-                                    class="quantity-input" 
-                                    data-price="{{ $item['price'] }}"
-                                >
+                                <input type="number" value="1" min="1" name="quantity" class="quantity-input"
+                                    data-price="{{ $item['price'] }}">
                             </td>
                             <td class="sub-total">${{$item['price']}}</td>
                             <td class="total-price">
@@ -96,8 +90,7 @@
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12 column clearfix">
                     <div class="btn-box float-right clearfix">
-                        <button type="submit" class="cart-btn">Update Cart</button>
-                        <button type="submit" class="theme-btn-four thm-btn">Checkout</button>
+                        <a href="{{ route('confirm') }}" class="theme-btn-four thm-btn">Checkout</a>
                     </div>
                 </div>
             </div>
@@ -135,7 +128,8 @@
     });
 </script>
 
-<script>document.addEventListener('DOMContentLoaded', () => {
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
     // Function to calculate the grand total
     function calculateGrandTotal() {
       const totalElements = document.querySelectorAll('.item-total'); // Select all row total elements
@@ -183,4 +177,4 @@
     // Initial grand total calculation on page load
     calculateGrandTotal();
   });
-  </script>
+</script>

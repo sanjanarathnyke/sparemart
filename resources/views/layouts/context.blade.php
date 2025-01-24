@@ -192,7 +192,7 @@
                             <div class="widget links-widget">
                                 <h4 class="widget_title">Why buy from us</h4>
                                 <ul class="lsit">
-                                    <li><a href="#">Solicitory </a></li>
+                                    <li><a href="#">Solicitory</a></li>
                                     <li><a href="#">Business Planning</a></li>
                                     <li><a href="#">Human Resources</a></li>
                                     <li><a href="#">Bonds & Commodities</a></li>

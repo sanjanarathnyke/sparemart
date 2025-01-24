@@ -48,4 +48,11 @@ class CartController extends Controller
 
         return redirect()->back()->with('success', 'Item removed from cart!');
     }
+
+    public function displayConfirm()
+    {
+        $cart = session()->get('cart', []);
+        // dd($cart);
+        return view('confirm');
+    }
 }
