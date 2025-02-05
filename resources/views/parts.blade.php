@@ -104,7 +104,7 @@
                                 </li>
                                 <li class="current">
                                     <a href="{{ route('light') }}">
-                                        Lighning
+                                        Lightning
                                     </a>
                                 </li>
                                 <li class="current">

@@ -41,7 +41,6 @@
                             <img src="{{ asset($shoks->image) }}" alt="{{ $shoks->name }}">
                         </div>
                         <div class="lower-content">
-                            <h5>{{ $shoks->category->name }}</h5> <!-- Displaying the category name -->
                             <h4>{{ $shoks->name }}</h4>
                             <div class="price">${{ number_format($shoks->price, 2) }}</div>
                             <div class="link-btn">

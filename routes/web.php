@@ -38,3 +38,7 @@ Route::get('/parts/{id}', [ProductController::class, 'show'])->name('single');
 Route::get('/confirm', [CartController::class, 'displayConfirm'])->name('confirm');
 
 Route::get('/suspensions',[VehicleItemsController::class,'getSuspensionItems'])->name('shoks');
+
+Route::get('/tires', [VehicleItemsController::class, 'getTires'])->name('tires');
+
+Route::get('/performance',[VehicleItemsController::class,'getperformanceItems'])->name('performance');
