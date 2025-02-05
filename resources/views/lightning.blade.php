@@ -1,7 +1,7 @@
 @extends('layouts.context')
 @section('content')
 <!-- Page Banner -->
-{{-- <section class="page-banner" style="background-image: url(assets/images/background/bg-5.jpg);">
+  <section class="page-banner" style="background-image: url(assets/images/background/bg-5.jpg);">
     <div class="auto-container">
         <h1>Shop Grid with left sidebar</h1>
         <ul class="bread-crumb clearfix">
@@ -9,7 +9,7 @@
             <li class="active">Shop Grid with left sidebar</li>
         </ul>
     </div>
-</section>
+</section> 
 
 <!-- Sidebar Page Container -->
 <div class="sidebar-page-container">
@@ -32,19 +32,22 @@
                 </select>
             </div>
         </div>
-        @foreach ($lights as $carlights)
-        <div class="col-lg-4 col-md-6 product-block-five">
-            <div class="inner-box">
-                <div class="image">
-                    <img src="{{ asset($carlights->image) }}" alt="{{ $carlights->name }}">
+
+        <div class="row">
+            @foreach ($lights as $carlights)
+                <div class="col-lg-4 col-md-6 product-block-five">
+                    <div class="inner-box">
+                        <div class="image">
+                            <img src="{{ asset($carlights->image) }}" alt="{{ $carlights->name }}" style="width: 100%; height: auto;">
+                        </div>
+                        <div class="lower-content">
+                            <h4>{{ $carlights->name }}</h4>
+                            <div class="price">${{ number_format($carlights->price, 2) }}</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="lower-content">
-                    <h4>{{ $carlights->name }}</h4>
-                    <div class="price">${{ number_format($carlights->price, 2) }}</div>
-                </div>
-            </div>
+            @endforeach
         </div>
-        @endforeach
 
         <div class="page-pagination">
             <ul class="clearfix">
@@ -58,12 +61,8 @@
             </ul>
         </div>
     </div>
-</div> --}}  
+</div>
 
-@if(isset($lights) && count($lights) > 0)
-    <p>Lights data is available</p>
-@else
-    <p>No lights found</p>
-@endif
+
 
 @endsection

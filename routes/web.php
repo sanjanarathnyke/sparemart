@@ -42,3 +42,4 @@ Route::get('/suspensions',[VehicleItemsController::class,'getSuspensionItems'])-
 Route::get('/tires', [VehicleItemsController::class, 'getTires'])->name('tires');
 
 Route::get('/performance',[VehicleItemsController::class,'getperformanceItems'])->name('performance');
+
