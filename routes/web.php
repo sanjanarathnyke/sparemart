@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\VehicleItemsController;
+use App\Models\Suspenstion;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -9,10 +11,6 @@ Route::get('/', function () {
 })->name('welcome');
 
 Route::get('/parts', [ProductController::class, 'index'])->name('parts');
-
-Route::get('/shoks', function () {
-    return view('suspention');
-})->name('shoks');
 
 Route::get('/engine', function () {
     return view('engine-parts');
@@ -38,3 +36,5 @@ Route::get('/cart', [CartController::class, 'viewCart'])->name('cart');
 Route::get('/parts/{id}', [ProductController::class, 'show'])->name('single');
 
 Route::get('/confirm', [CartController::class, 'displayConfirm'])->name('confirm');
+
+Route::get('/suspensions',[VehicleItemsController::class,'getSuspensionItems'])->name('shoks');

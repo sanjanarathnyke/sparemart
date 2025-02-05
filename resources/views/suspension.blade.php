@@ -34,29 +34,24 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-4 col-md-6 product-block-five">
-                <div class="inner-box">
-                    <div class="image">
-                        <img src="assets/images/resource/image-42.jpg" alt="">
-                    </div>
-                    <div class="lower-content">
-                        <h5>Product Category</h5>
-                        <h4><a href="product-details.html">Disc Brake</a> </h4>
-                        <div class="rating">
-                            <span class="fas fa-star"></span>
-                            <span class="fas fa-star"></span>
-                            <span class="fas fa-star"></span>
-                            <span class="fas fa-star"></span>
-                            <span class="fas fa-star"></span>
+            @foreach ($suspensionItems as $shoks)
+                <div class="col-lg-4 col-md-6 product-block-five">
+                    <div class="inner-box">
+                        <div class="image">
+                            <img src="{{ asset($shoks->image) }}" alt="{{ $shoks->name }}">
                         </div>
-                        <div class="price">$62.00 <del>$86.00</del></div>
-                        <div class="link-btn">
-                            <a href="cart.html" class="theme-btn btn-style-one"><span> Add to cart</span></a>
-                            <a href="#" class="theme-btn btn-style-one style-3"><span>Add to wishlist</span></a>
+                        <div class="lower-content">
+                            <h5>{{ $shoks->category->name }}</h5> <!-- Displaying the category name -->
+                            <h4>{{ $shoks->name }}</h4>
+                            <div class="price">${{ number_format($shoks->price, 2) }}</div>
+                            <div class="link-btn">
+                                <a href="cart.html" class="theme-btn btn-style-one"><span> Add to cart</span></a>
+                                <a href="#" class="theme-btn btn-style-one style-3"><span>Add to wishlist</span></a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            @endforeach
         </div>
         <div class="page-pagination">
             <ul class="clearfix">
@@ -67,7 +62,7 @@
                 <li><a href="#">...</a></li>
                 <li><a href="#">10</a></li>
                 <li><a href="#"><span class="fas fa-angle-double-right"></span></a></li>
-            </ul> 
+            </ul>
         </div>
     </div>
 </div>

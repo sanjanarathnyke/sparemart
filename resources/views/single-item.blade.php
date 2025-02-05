@@ -19,7 +19,7 @@
                 <div class="col-lg-6">
                     <div class="single-product-image">
                         <div class="image">
-                            <img src="assets/images/resource/image-53.jpg" alt="Product Image">
+                            <img src="{{ asset($part->image) }}" alt="Product Image">
                         </div>
                     </div>
                 </div>
@@ -31,7 +31,8 @@
                         <div class="text">{{$part->description}}</div>
                         <div class="product-quantity">
                             <div class="link-btn">
-                                <a href="{{ route('cart') }}" class="theme-btn btn-style-one"><span> Add to cart</span></a>
+                                <a href="{{ route('cart') }}" class="theme-btn btn-style-one"><span> Add to
+                                        cart</span></a>
                                 <a href="#" class="theme-btn btn-style-one style-3"><span>Add to wishlist</span></a>
                             </div>
                         </div>
@@ -40,34 +41,7 @@
             </div>
         </div>
         <div class="product-tab-box tabs-box">
-            <ul class="tab-btns tab-buttons clearfix">
-                <li data-tab="#desc" class="tab-btn active-btn"><span>Description</span></li>
-            </ul>
             <div class="tabs-content">
-                <div class="tab active-tab" id="desc">
-                    <div class="product-details-content">
-                        <div class="desc-content-box">
-                            <div class="text">consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                                et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                                laboris nisi ut aliquip ex ea commodo Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                                enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                commodo consequat.</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab" id="information">
-                    <div class="product-details-content">
-                        <div class="desc-content-box">
-                            <div class="text">consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                                et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                                laboris nisi ut aliquip ex ea commodo Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                                enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                commodo consequat.</div>
-                        </div>
-                    </div>
-                </div>
                 <div class="tab" id="review">
                     <div class="review-box-holder">
                         <div class="theme_carousel owl-theme owl-carousel"

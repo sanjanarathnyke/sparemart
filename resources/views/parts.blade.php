@@ -29,10 +29,10 @@
                             <select class="selectmenu" name="price" onchange="this.form.submit()">
                                 <option value="" {{ request('price')=='' ? 'selected' : '' }}>All</option>
                                 <option value="<$45" {{ request('price')=='<$45' ? 'selected' : '' }}>
-                                    <$45< /option>
+                                    ⬇️$45 </option>
                                 <option value="<$69" {{ request('price')=='<$69' ? 'selected' : '' }}>
-                                    <$69< /option>
-                                <option value=">$99" {{ request('price')=='>$99' ? 'selected' : '' }}> >$99</option>
+                                    ⬇️$69 </option>
+                                <option value=">$99" {{ request('price')=='>$99' ? 'selected' : '' }}> ⬆️$99</option>
                             </select>
                         </form>
                     </div>
@@ -44,8 +44,7 @@
                     <div class="col-lg-12 list-part product-block-five">
                         <div class="inner-box">
                             <div class="image">
-                                <!-- Verify that this image path is correct -->
-                                <img src="{{ asset('assets/images/resource/' . $part->image) }}" alt="Product Image">
+                                <img src="{{ asset($part->image) }}" alt="{{ $part->name }}">
                             </div>
                             <div class="lower-content">
                                 <h5>{{$part->category->name}}</h5>
@@ -86,13 +85,34 @@
                             <h3>Product Categories</h3>
                         </div>
                         <div class="widget-content">
+                            
                             <ul>
-                                <li class="current"><a href="{{ route('shoks') }}">Suspension
-                                        <span>20</span></a> </li>
-                                <li><a href="{{ route('tires') }}">Tires & Wheels <span>18</span></a></li>
-                                <li><a href="{{ route('performance') }}">Performance Parts <span>13</span></a> </li>
-                                <li><a href="{{ route('light') }}">Lighting <span>16</span></a> </li>
-                                <li><a href="{{ route('engine') }}">Engine Parts <span>22</span></a> </li>
+                                <li class="current">
+                                    <a href="{{ route('shoks') }}">
+                                        Suspension
+                                    </a>
+                                </li>
+                                <li class="current">
+                                    <a href="{{ route('tires') }}">
+                                        Tires & Wheels
+                                    </a>
+                                </li>
+                                <li class="current">
+                                    <a href="{{ route('performance') }}">
+                                        Performance & parts
+                                    </a>
+                                </li>
+                                <li class="current">
+                                    <a href="{{ route('light') }}">
+                                        Lighning
+                                    </a>
+                                </li>
+                                <li class="current">
+                                    <a href="{{ route('engine') }}">
+                                        Engine
+                                    </a>
+                                </li>
+
                             </ul>
                         </div>
                     </div>
