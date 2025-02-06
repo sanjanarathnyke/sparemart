@@ -22,6 +22,11 @@ class DatabaseSeeder extends Seeder
         $this->call([
             CategoriesSeeder::class,
             ItemsSeeder::class,
+            TireSeeder::class,
+            LightSeeder::class,
+            PerformanceSeeder::class,
+            SuspensionSeeder::class,
+            EngineSeeder::class
         ]);
     }
 }

@@ -34,7 +34,7 @@
         </div>
 
         <div class="row">
-            @foreach ($lights as $carlights)
+            @foreach ($light as $carlights)
                 <div class="col-lg-4 col-md-6 product-block-five">
                     <div class="inner-box">
                         <div class="image">
@@ -62,7 +62,5 @@
         </div>
     </div>
 </div>
-
-
 
 @endsection

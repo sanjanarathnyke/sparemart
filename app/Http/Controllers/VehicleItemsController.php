@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Engine;
 use App\Models\Light;
 use App\Models\Performance;
 use App\Models\Suspension;
@@ -31,5 +32,16 @@ class VehicleItemsController extends Controller
         return view('performance-parts', compact('performanceItems'));
     }
 
+    public function getlights()
+    {
+        $light = Light::with('category')->get();
+        return view('lightning',compact('light'));
+    }
+
+    public function getengine()
+    {
+        $engine = Engine::with('category')->get();
+        return view('engine-parts',compact('engine'));
+    }
 
 }
