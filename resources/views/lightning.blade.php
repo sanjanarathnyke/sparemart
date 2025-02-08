@@ -42,7 +42,22 @@
                         </div>
                         <div class="lower-content">
                             <h4>{{ $carlights->name }}</h4>
+                            <p style="font-size: 14px; color: #e20e0e">{{$carlights->category->name}}</p>
                             <div class="price">${{ number_format($carlights->price, 2) }}</div>
+                            <div class="link-btn">
+                                <form action="{{ route('add-to-cart') }}" method="POST"
+                                style="display: inline-block;">
+                                @csrf
+                                <input type="hidden" name="id" value="{{ $carlights->id }}">
+                                <input type="hidden" name="name" value="{{ $carlights->name }}">
+                                <input type="hidden" name="price" value="{{ $carlights->price }}">
+                                <input type="hidden" name="image" value="{{$carlights->image}}">
+                                <button type="submit" class="theme-btn btn-style-one">
+                                    <span>Add to cart</span>
+                                </button>
+                            </form>
+                                <a href="#" class="theme-btn btn-style-one style-3"><span>Add to wishlist</span></a>
+                            </div>
                         </div>
                     </div>
                 </div>

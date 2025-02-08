@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
             LightSeeder::class,
             PerformanceSeeder::class,
             SuspensionSeeder::class,
-            EngineSeeder::class
+            EnginesSeeder::class
         ]);
     }
 }

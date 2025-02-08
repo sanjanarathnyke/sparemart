@@ -43,9 +43,20 @@
                         </div>
                         <div class="lower-content">
                             <h4>{{ $tire->name }}</h4>
+                            <p style="font-size: 14px; color: #e20e0e">{{$tire->category->name}}</p>
                             <div class="price">${{ number_format($tire->price, 2) }}</div>
                             <div class="link-btn">
-                                <a href="cart.html" class="theme-btn btn-style-one"><span> Add to cart</span></a>
+                                <form action="{{ route('add-to-cart') }}" method="POST"
+                                style="display: inline-block;">
+                                @csrf
+                                <input type="hidden" name="id" value="{{ $tire->id }}">
+                                <input type="hidden" name="name" value="{{ $tire->name }}">
+                                <input type="hidden" name="price" value="{{ $tire->price }}">
+                                <input type="hidden" name="image" value="{{$tire->image}}">
+                                <button type="submit" class="theme-btn btn-style-one">
+                                    <span>Add to cart</span>
+                                </button>
+                            </form>
                                 <a href="#" class="theme-btn btn-style-one style-3"><span>Add to wishlist</span></a>
                             </div>
                         </div>

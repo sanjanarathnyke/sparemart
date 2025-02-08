@@ -41,6 +41,7 @@
                         </div>
                         <div class="lower-content">
                             <h4>{{ $modify->name }}</h4>
+                            <p style="font-size: 14px; color: #e20e0e">{{$modify->category->name}}</p>
                             <div class="price">${{ number_format($modify->price, 2) }}</div>
                             <div class="link-btn">
                                 <a href="cart.html" class="theme-btn btn-style-one"><span> Add to cart</span></a>

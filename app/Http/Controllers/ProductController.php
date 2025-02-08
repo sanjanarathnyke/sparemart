@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Item;
+use App\Models\Suspension;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -10,7 +11,7 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         $query = Item::with('category');
-    
+            
         if ($request->has('price')) {
             $price = $request->input('price');
     
@@ -28,7 +29,6 @@ class ProductController extends Controller
         return view('parts', compact('parts'));
     }
     
-
     public function show($id)
     {
         $part = Item::with('category')->findOrFail($id);

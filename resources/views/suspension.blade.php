@@ -42,9 +42,22 @@
                         </div>
                         <div class="lower-content">
                             <h4>{{ $shoks->name }}</h4>
+                            <p style="font-size: 14px; color: #e20e0e">{{$shoks->category->name}}</p>
                             <div class="price">${{ number_format($shoks->price, 2) }}</div>
                             <div class="link-btn">
-                                <a href="cart.html" class="theme-btn btn-style-one"><span> Add to cart</span></a>
+
+                                <form action="{{ route('add-to-cart') }}" method="POST"
+                                style="display: inline-block;">
+                                @csrf
+                                <input type="hidden" name="id" value="{{ $shoks->id }}">
+                                <input type="hidden" name="name" value="{{ $shoks->name }}">
+                                <input type="hidden" name="price" value="{{ $shoks->price }}">
+                                <input type="hidden" name="image" value="{{$shoks->image}}">
+                                <button type="submit" class="theme-btn btn-style-one">
+                                    <span>Add to cart</span>
+                                </button>
+                            </form>
+
                                 <a href="#" class="theme-btn btn-style-one style-3"><span>Add to wishlist</span></a>
                             </div>
                         </div>
@@ -67,3 +80,39 @@
 </div>
 
 @endsection
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const productId = this.getAttribute('data-id');
+                const productName = this.getAttribute('data-name');
+                const productPrice = this.getAttribute('data-price');
+                const productImage = this.getAttribute('data-image');
+
+                // Send the data to the server using fetch API or Axios
+                fetch('/add-to-cart', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+                    },
+                    body: JSON.stringify({
+                        id: productId,
+                        name: productName,
+                        price: productPrice
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    alert(data.message);
+                })
+                .catch(error => console.error('Error:', error));
+            });
+        });
+    });
+</script>
