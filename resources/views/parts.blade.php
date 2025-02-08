@@ -85,7 +85,7 @@
                             <h3>Product Categories</h3>
                         </div>
                         <div class="widget-content">
-                            
+
                             <ul>
                                 <li class="current">
                                     <a href="{{ route('shoks') }}">

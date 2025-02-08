@@ -34,18 +34,17 @@
         </div>
         <div class="row">
             @foreach ($engine as $carengine)
-                <div class="col-lg-4 col-md-6 product-block-five">
-                    <div class="inner-box">
-                        <div class="image">
-                            <img src="{{ asset($carengine->image) }}" alt="{{$carengine->name}}">
-                        </div>
-                        <div class="lower-content">
-                            <h4>{{ $carengine->name }}</h4>
-                            <p style="font-size: 14px; color: #e20e0e">{{$carengine->category->name}}</p>
-                            <div class="price">${{ number_format($carengine->price, 2) }}</div>
-                            <div class="link-btn">
-                                <form action="{{ route('add-to-cart') }}" method="POST"
-                                style="display: inline-block;">
+            <div class="col-lg-4 col-md-6 product-block-five">
+                <div class="inner-box">
+                    <div class="image">
+                        <img src="{{ asset($carengine->image) }}" alt="{{$carengine->name}}">
+                    </div>
+                    <div class="lower-content">
+                        <h4>{{ $carengine->name }}</h4>
+                        <p style="font-size: 14px; color: #e20e0e">{{$carengine->category->name}}</p>
+                        <div class="price">${{ number_format($carengine->price, 2) }}</div>
+                        <div class="link-btn">
+                            <form action="{{ route('add-to-cart') }}" method="POST" style="display: inline-block;">
                                 @csrf
                                 <input type="hidden" name="id" value="{{ $carengine->id }}">
                                 <input type="hidden" name="name" value="{{ $carengine->name }}">
@@ -55,23 +54,17 @@
                                     <span>Add to cart</span>
                                 </button>
                             </form>
-                                <a href="#" class="theme-btn btn-style-one style-3"><span>Add to wishlist</span></a>
-                            </div>
+                            <a href="#" class="theme-btn btn-style-one style-3"><span>Add to wishlist</span></a>
                         </div>
                     </div>
                 </div>
+            </div>
             @endforeach
         </div>
         <div class="page-pagination">
-            <ul class="clearfix">
-                <li><a href="#"><span class="fas fa-angle-double-left"></span></a></li>
-                <li><a href="#">1</a></li>
-                <li class="active"><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">...</a></li>
-                <li><a href="#">10</a></li>
-                <li><a href="#"><span class="fas fa-angle-double-right"></span></a></li>
-            </ul>
+            <div class="page-pagination">
+                {{ $engine->links('pagination::bootstrap-5') }}
+            </div>
         </div>
     </div>
 </div>

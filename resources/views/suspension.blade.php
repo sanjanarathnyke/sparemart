@@ -66,15 +66,9 @@
             @endforeach
         </div>
         <div class="page-pagination">
-            <ul class="clearfix">
-                <li><a href="#"><span class="fas fa-angle-double-left"></span></a></li>
-                <li><a href="#">1</a></li>
-                <li class="active"><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">...</a></li>
-                <li><a href="#">10</a></li>
-                <li><a href="#"><span class="fas fa-angle-double-right"></span></a></li>
-            </ul>
+            <div class="page-pagination">
+                {{ $suspensionItems->links('pagination::bootstrap-5') }}
+            </div>
         </div>
     </div>
 </div>

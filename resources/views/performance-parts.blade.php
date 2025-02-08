@@ -34,34 +34,28 @@
         </div>
         <div class="row">
             @foreach ($performanceItems as $modify)
-                <div class="col-lg-4 col-md-6 product-block-five">
-                    <div class="inner-box">
-                        <div class="image">
-                            <img src="{{ asset($modify->image) }}" alt="{{$modify->name}}">
-                        </div>
-                        <div class="lower-content">
-                            <h4>{{ $modify->name }}</h4>
-                            <p style="font-size: 14px; color: #e20e0e">{{$modify->category->name}}</p>
-                            <div class="price">${{ number_format($modify->price, 2) }}</div>
-                            <div class="link-btn">
-                                <a href="cart.html" class="theme-btn btn-style-one"><span> Add to cart</span></a>
-                                <a href="#" class="theme-btn btn-style-one style-3"><span>Add to wishlist</span></a>
-                            </div>
+            <div class="col-lg-4 col-md-6 product-block-five">
+                <div class="inner-box">
+                    <div class="image">
+                        <img src="{{ asset($modify->image) }}" alt="{{$modify->name}}">
+                    </div>
+                    <div class="lower-content">
+                        <h4>{{ $modify->name }}</h4>
+                        <p style="font-size: 14px; color: #e20e0e">{{$modify->category->name}}</p>
+                        <div class="price">${{ number_format($modify->price, 2) }}</div>
+                        <div class="link-btn">
+                            <a href="cart.html" class="theme-btn btn-style-one"><span> Add to cart</span></a>
+                            <a href="#" class="theme-btn btn-style-one style-3"><span>Add to wishlist</span></a>
                         </div>
                     </div>
                 </div>
+            </div>
             @endforeach
         </div>
         <div class="page-pagination">
-            <ul class="clearfix">
-                <li><a href="#"><span class="fas fa-angle-double-left"></span></a></li>
-                <li><a href="#">1</a></li>
-                <li class="active"><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">...</a></li>
-                <li><a href="#">10</a></li>
-                <li><a href="#"><span class="fas fa-angle-double-right"></span></a></li>
-            </ul>
+            <div class="page-pagination">
+                {{ $performanceItems->links('pagination::bootstrap-5') }}
+            </div>
         </div>
     </div>
 </div>

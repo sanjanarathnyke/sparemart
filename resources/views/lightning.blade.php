@@ -1,7 +1,7 @@
 @extends('layouts.context')
 @section('content')
 <!-- Page Banner -->
-  <section class="page-banner" style="background-image: url(assets/images/background/bg-5.jpg);">
+<section class="page-banner" style="background-image: url(assets/images/background/bg-5.jpg);">
     <div class="auto-container">
         <h1>Shop Grid with left sidebar</h1>
         <ul class="bread-crumb clearfix">
@@ -9,7 +9,7 @@
             <li class="active">Shop Grid with left sidebar</li>
         </ul>
     </div>
-</section> 
+</section>
 
 <!-- Sidebar Page Container -->
 <div class="sidebar-page-container">
@@ -35,18 +35,18 @@
 
         <div class="row">
             @foreach ($light as $carlights)
-                <div class="col-lg-4 col-md-6 product-block-five">
-                    <div class="inner-box">
-                        <div class="image">
-                            <img src="{{ asset($carlights->image) }}" alt="{{ $carlights->name }}" style="width: 100%; height: auto;">
-                        </div>
-                        <div class="lower-content">
-                            <h4>{{ $carlights->name }}</h4>
-                            <p style="font-size: 14px; color: #e20e0e">{{$carlights->category->name}}</p>
-                            <div class="price">${{ number_format($carlights->price, 2) }}</div>
-                            <div class="link-btn">
-                                <form action="{{ route('add-to-cart') }}" method="POST"
-                                style="display: inline-block;">
+            <div class="col-lg-4 col-md-6 product-block-five">
+                <div class="inner-box">
+                    <div class="image">
+                        <img src="{{ asset($carlights->image) }}" alt="{{ $carlights->name }}"
+                            style="width: 100%; height: auto;">
+                    </div>
+                    <div class="lower-content">
+                        <h4>{{ $carlights->name }}</h4>
+                        <p style="font-size: 14px; color: #e20e0e">{{$carlights->category->name}}</p>
+                        <div class="price">${{ number_format($carlights->price, 2) }}</div>
+                        <div class="link-btn">
+                            <form action="{{ route('add-to-cart') }}" method="POST" style="display: inline-block;">
                                 @csrf
                                 <input type="hidden" name="id" value="{{ $carlights->id }}">
                                 <input type="hidden" name="name" value="{{ $carlights->name }}">
@@ -56,24 +56,18 @@
                                     <span>Add to cart</span>
                                 </button>
                             </form>
-                                <a href="#" class="theme-btn btn-style-one style-3"><span>Add to wishlist</span></a>
-                            </div>
+                            <a href="#" class="theme-btn btn-style-one style-3"><span>Add to wishlist</span></a>
                         </div>
                     </div>
                 </div>
+            </div>
             @endforeach
         </div>
 
         <div class="page-pagination">
-            <ul class="clearfix">
-                <li><a href="#"><span class="fas fa-angle-double-left"></span></a></li>
-                <li><a href="#">1</a></li>
-                <li class="active"><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">...</a></li>
-                <li><a href="#">10</a></li>
-                <li><a href="#"><span class="fas fa-angle-double-right"></span></a></li>
-            </ul>
+            <div class="page-pagination">
+                {{ $light->links('pagination::bootstrap-5') }}
+            </div>
         </div>
     </div>
 </div>
