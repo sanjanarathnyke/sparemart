@@ -10,11 +10,11 @@ class CartController extends Controller
     {
         $cart = session()->get('cart', []);
 
-        // Check if the product is already in the cart
+
         if (isset($cart[$request->id])) {
             $cart[$request->id];
         } else {
-            // Add new product to the cart
+
             $cart[$request->id] = [
                 "name" => $request->name,
                 "price" => $request->price,
@@ -38,21 +38,21 @@ class CartController extends Controller
     {
         $cart = session()->get('cart', []);
 
-        // Check if the item exists in the cart
+
         if (isset($cart[$request->id])) {
-            unset($cart[$request->id]); // Remove the item from the cart
+            unset($cart[$request->id]);
         }
 
-        // Update the cart in the session
+
         session()->put('cart', $cart);
 
         return redirect()->back()->with('success', 'Item removed from cart!');
     }
 
-    public function displayConfirm()
-    {
-        $cart = session()->get('cart', []);
-        // dd($cart);
-        return view('confirm');
-    }
+    // public function displayConfirm()
+    // {
+    //     $cart = session()->get('cart', []);
+    //     // dd($cart);
+    //     return view('confirm');
+    // }
 }

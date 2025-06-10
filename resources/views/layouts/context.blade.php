@@ -232,7 +232,7 @@
             <div class="auto-container">
                 <div class="outer-box">
                     <div class="row m-0 align-items-center justify-content-between">
-                        <div class="copyright-text">©2021 CopyRight Example. All rights reserved. </div>
+                        {{-- <div class="copyright-text">©2021 CopyRight Example. All rights reserved. </div> --}}
                         <ul class="menu">
                             <li><a href="index.html">Home</a></li>
                             <li><a href="">About </a></li>

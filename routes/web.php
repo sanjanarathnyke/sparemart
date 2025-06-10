@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ActiveCustomerController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\VehicleItemsController;
@@ -35,7 +36,7 @@ Route::get('/cart', [CartController::class, 'viewCart'])->name('cart');
 
 Route::get('/parts/{id}', [ProductController::class, 'show'])->name('single');
 
-Route::get('/confirm', [CartController::class, 'displayConfirm'])->name('confirm');
+// Route::get('/confirm', [CartController::class, 'displayConfirm'])->name('confirm');
 
 Route::get('/suspensions',[VehicleItemsController::class,'getSuspensionItems'])->name('shoks');
 
@@ -46,3 +47,15 @@ Route::get('/performance',[VehicleItemsController::class,'getperformanceItems'])
 Route::get('/light',[VehicleItemsController::class,'getlights'])->name('light');
 
 Route::get('/engine',[VehicleItemsController::class,'getengine'])->name('engine');
+
+Route::get('/confirm',[ActiveCustomerController::class,'displayConfirm'])->name('confirm');
+
+Route::post('/customer-store',[ActiveCustomerController::class,'storeSubscribers'])->name('cart.store-and-print');
+
+Route::get('/login', function () {
+    return view('login');
+})->name('login');
+
+Route::get('/invoice', function () {
+    return view('layouts.invoice');
+})->name('invoice');
