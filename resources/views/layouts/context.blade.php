@@ -47,12 +47,12 @@
                             </form>
                         </div>
                         <ul class="right-info">
-                            <li><a href="#"><i class="far fa-user"></i></a></li>
                             <li>
-                                <div class="shopping-cart"><i class="far fa-shopping-cart"></i><span
-                                        class="count">0</span></div>
+                                <div class="shopping-cart">
+                                    <i class="far fa-shopping-cart"></i>
+                                    <span class="count">{{ $cartItemCount ?? 0 }}</span>
+                                </div>
                             </li>
-
                         </ul>
                     </div>
                 </div>

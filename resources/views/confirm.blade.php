@@ -82,9 +82,6 @@
                             </div>
                         </form>
                     </div>
-                    <div class="card-footer bg-light p-3 text-center">
-                        <small class="text-muted fs-6">Already registered? <a href="{{ route('login') }}" class="text-decoration-none">Login here</a></small>
-                    </div>
                 </div>
             </div>
         </div>
